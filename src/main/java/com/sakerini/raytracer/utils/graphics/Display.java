@@ -24,11 +24,11 @@ public class Display extends Canvas {
     private JFrame _jFrame;
     private BufferStrategy _bufferStrategy;
 
-    public Display(int width, int height, int scale, String tittle) {
+    public Display(int width, int height, int scale, String title) {
         this.width = width;
         this.height = height;
         this.scale = scale;
-        this.title = tittle;
+        this.title = title;
 
         _dimension = new Dimension(width * scale, height * scale);
         setPreferredSize(_dimension);
@@ -39,7 +39,7 @@ public class Display extends Canvas {
 
         _jFrame = new JFrame();
         _jFrame.setResizable(false);
-        _jFrame.setTitle(title);
+        _jFrame.setTitle(this.title);
         _jFrame.add(this);
         _jFrame.pack();
         _jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
