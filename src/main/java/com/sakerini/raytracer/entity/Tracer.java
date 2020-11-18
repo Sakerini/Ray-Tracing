@@ -1,16 +1,46 @@
 package com.sakerini.raytracer.entity;
 
 import com.sakerini.raytracer.geometry.Vector3D;
+import com.sakerini.raytracer.utils.Configuration;
 import com.sakerini.raytracer.utils.graphics.Display;
 import lombok.Getter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 public class Tracer {
 
     private Camera _camera;
+    private List<TracerWorker> _workers = new ArrayList<TracerWorker>();
 
     public Tracer() {
         _camera = new Camera(new Vector3D(-1.0f, 1.0f, 0.2f), 0.005f, 0.1f);
+        prepareWorkers(Configuration.amoutOfThreads);
+    }
+
+    public void prepareWorkers(int quantity) {
+        if (quantity <= 0)
+            quantity = Runtime.getRuntime().availableProcessors();
+
+        _workers.clear();
+
+        int width = Configuration.displayWidth;
+        int height = Configuration.displayHeight;
+
+        if (quantity > 1) {
+            // TODO CREATE WORKER FOR CERTAIN PART
+        } else {
+            _workers.add(new TracerWorker(this, width, height, 0,0, 0));
+        }
+
+    }
+
+    public boolean isWorkerDone() {
+        for (TracerWorker worker: _workers)
+            if (!worker.isFinished())
+                return false;
+        return true;
     }
 
     public void update(float dt)
@@ -19,7 +49,13 @@ public class Tracer {
     }
 
     public void render(Display display) {
-        //TODO
+        if (isWorkerDone()) {
+            for(TracerWorker worker : _workers) {
+                worker.set_display(display);
+                Thread tracerWorker = new Thread(worker, "Worker: " + worker.getId());
+                tracerWorker.start();
+            }
+        }
     }
 
 }

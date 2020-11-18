@@ -10,8 +10,9 @@ public class Engine implements Runnable {
     private Display _display;
     private Tracer _tracer;
 
-    public Engine(Display display) {
+    public Engine(Display display, Tracer tracer) {
         _display = display;
+        _tracer = tracer;
         isRunning = false;
     }
 
@@ -39,6 +40,7 @@ public class Engine implements Runnable {
     }
 
     public void render() {
+        _tracer.render(_display);
         _display.render();
     }
 
