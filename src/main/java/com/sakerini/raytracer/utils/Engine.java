@@ -2,6 +2,7 @@ package com.sakerini.raytracer.utils;
 
 import com.sakerini.raytracer.entity.Tracer;
 import com.sakerini.raytracer.utils.graphics.Display;
+import com.sakerini.raytracer.utils.service.TimeUtil;
 
 public class Engine implements Runnable {
 
@@ -31,8 +32,8 @@ public class Engine implements Runnable {
     @Override
     public void run() {
         while (isRunning && _display != null) {
-            //TODO On Running i should update Tracer before Rendering giving delta float parameter
-            //update();
+            TimeUtil.update();
+            update((float) TimeUtil.getDeltatTime());
             render();
         }
     }
