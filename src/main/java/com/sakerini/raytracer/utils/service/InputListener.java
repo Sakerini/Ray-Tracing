@@ -1,4 +1,4 @@
-package com.sakerini.raytracer.utils;
+package com.sakerini.raytracer.utils.service;
 
 import java.awt.event.*;
 

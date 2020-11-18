@@ -2,7 +2,7 @@ package com.sakerini.raytracer.entity;
 
 import com.sakerini.raytracer.geometry.Vector3D;
 import com.sakerini.raytracer.geometry.Quaternion;
-import com.sakerini.raytracer.utils.InputListener;
+import com.sakerini.raytracer.utils.service.InputListener;
 import lombok.Getter;
 
 public class Camera {
