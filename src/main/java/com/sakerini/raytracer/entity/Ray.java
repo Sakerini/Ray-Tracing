@@ -37,9 +37,9 @@ public class Ray {
         float xNorm = (x - width * PIXEL_SHIFT) / width * aspectRatio;
         float yNorm = (height * PIXEL_SHIFT - y) / height;
 
-        Vector3D forward = camera.getForward();
-        Vector3D up = camera.getUp();
-        Vector3D right = camera.getRight();
+        Vector3D forward = camera.getForwardVector();
+        Vector3D up = camera.getUpVector();
+        Vector3D right = camera.getRightVector();
 
         Vector3D imagePoint = right.scale(xNorm).add(up.scale(yNorm)).add(camera.getPosition().add(forward));
         Vector3D rayDirection = imagePoint.sub(camera.getPosition());

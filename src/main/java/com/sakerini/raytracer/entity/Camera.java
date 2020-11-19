@@ -24,34 +24,34 @@ public class Camera {
     public void update(float dt) {
         // Camera movement
         if (InputListener.getKeyboardKeys()[InputListener.KEY_W]) {
-            move(getForward(), speed * dt);
+            move(getForwardVector(), speed * dt);
         } else if (InputListener.getKeyboardKeys()[InputListener.KEY_S]) {
-            move(getForward().negate(), speed * dt);
+            move(getForwardVector().negate(), speed * dt);
         }
         if (InputListener.getKeyboardKeys()[InputListener.KEY_A]) {
-            move(getRight().negate(), speed * dt);
+            move(getRightVector().negate(), speed * dt);
         } else if (InputListener.getKeyboardKeys()[InputListener.KEY_D]) {
-            move(getRight(), speed * dt);
+            move(getRightVector(), speed * dt);
         }
         if (InputListener.getKeyboardKeys()[InputListener.KEY_R]) {
-            move(getUp(), speed * dt);
+            move(getUpVector(), speed * dt);
         } else if (InputListener.getKeyboardKeys()[InputListener.KEY_F]) {
-            move(getUp().negate(), speed * dt);
+            move(getUpVector().negate(), speed * dt);
         }
 
         // Camera rotation
         if (InputListener.getKeyboardKeys()[InputListener.KEY_RIGHT])
-            rotate(getUp(), sensitivity * dt);
+            rotate(getUpVector(), sensitivity * dt);
         if (InputListener.getKeyboardKeys()[InputListener.KEY_LEFT])
-            rotate(getUp(), -sensitivity * dt);
+            rotate(getUpVector(), -sensitivity * dt);
         if (InputListener.getKeyboardKeys()[InputListener.KEY_UP])
-            rotate(getRight(), -sensitivity * dt);
+            rotate(getRightVector(), -sensitivity * dt);
         if (InputListener.getKeyboardKeys()[InputListener.KEY_DOWN])
-            rotate(getRight(), sensitivity * dt);
+            rotate(getRightVector(), sensitivity * dt);
         if (InputListener.getKeyboardKeys()[InputListener.KEY_E])
-            rotate(getForward(), sensitivity * dt);
+            rotate(getForwardVector(), sensitivity * dt);
         if (InputListener.getKeyboardKeys()[InputListener.KEY_Q])
-            rotate(getForward(), -sensitivity * dt);
+            rotate(getForwardVector(), -sensitivity * dt);
     }
 
     public void move(Vector3D direction, float amount) {
@@ -64,15 +64,15 @@ public class Camera {
         rotateQuaternion = rotation.mul(rotateQuaternion).normalize();
     }
 
-    public Vector3D getUp() {
+    public Vector3D getUpVector() {
         return rotateQuaternion.getUpVector();
     }
 
-    public Vector3D getRight() {
+    public Vector3D getRightVector() {
         return rotateQuaternion.getRightVector();
     }
 
-    public Vector3D getForward() {
+    public Vector3D getForwardVector() {
         return rotateQuaternion.getForwardVector();
     }
 }
