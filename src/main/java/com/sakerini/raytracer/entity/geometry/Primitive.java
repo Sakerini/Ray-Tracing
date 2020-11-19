@@ -1,5 +1,6 @@
 package com.sakerini.raytracer.entity.geometry;
 
+import com.sakerini.raytracer.entity.Ray;
 import lombok.Getter;
 
 public abstract class Primitive {
@@ -16,6 +17,6 @@ public abstract class Primitive {
     }
 
     //TODO Intersection with RAY
-    public void intersect() {}
+    public abstract Intersection intersect(Ray ray);
 
 }
