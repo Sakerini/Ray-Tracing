@@ -1,4 +1,4 @@
-package com.sakerini.raytracer.geometry;
+package com.sakerini.raytracer.entity.geometry;
 
 import lombok.Getter;
 

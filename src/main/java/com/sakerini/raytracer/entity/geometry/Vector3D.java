@@ -1,4 +1,4 @@
-package com.sakerini.raytracer.geometry;
+package com.sakerini.raytracer.entity.geometry;
 
 public class Vector3D {
 

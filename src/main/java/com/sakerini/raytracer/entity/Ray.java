@@ -1,6 +1,6 @@
 package com.sakerini.raytracer.entity;
 
-import com.sakerini.raytracer.geometry.Vector3D;
+import com.sakerini.raytracer.entity.geometry.Vector3D;
 import lombok.Getter;
 import lombok.Setter;
 
