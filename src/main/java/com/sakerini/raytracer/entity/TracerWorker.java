@@ -62,10 +62,10 @@ public class TracerWorker implements Runnable {
 
     public static Vector3D traceColor(Ray ray, Scene scene, int recursionDepth) {
         if (recursionDepth > Configuration.maxRecursion)
-            return new Vector3D(); // Return no color
+            return new Vector3D(0f); // Return no color
 
         // Init intersect data
-        Intersection xInit = null, xFinal = null;
+        Intersection xInit, xFinal = null;
         SceneObject xObj = null;
         float tNear = Float.MAX_VALUE; // Distance to the intersect object
 

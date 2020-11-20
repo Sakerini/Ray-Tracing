@@ -22,7 +22,7 @@ public class Plane extends Primitive {
         float d, t;
 
         P = vertices[0].sub(ray.getPosition());
-        d = normal.dot(ray.getPosition());
+        d = normal.dot(ray.getDirection());
 
         if (d > 0.0f)
             return null;

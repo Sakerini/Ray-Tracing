@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 public class Display extends Canvas {
 
-    private final int DISPLAY_FILL_COLOR = 0x000000;
+    private final int DISPLAY_FILL_COLOR = 0xff0000;
 
     @Setter
     private String title;

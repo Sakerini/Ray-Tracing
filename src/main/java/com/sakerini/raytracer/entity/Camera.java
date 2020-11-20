@@ -16,7 +16,7 @@ public class Camera {
 
     public Camera(Vector3D pos, float speed, float sensitivity) {
         position = pos;
-        rotateQuaternion = new Quaternion(0, 0, 0, 0);
+        rotateQuaternion = new Quaternion(0, 0, 1, 0);
         this.speed = speed;
         this.sensitivity = sensitivity;
     }

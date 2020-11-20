@@ -12,10 +12,12 @@ import java.util.List;
 @Getter
 public class Scene {
 
-    private List<SceneObject> sceneObjects = new ArrayList<>();
-    private List<BaseLight> lights = new ArrayList<>();
+    private List<SceneObject> sceneObjects;
+    private List<BaseLight> lights;
 
     public Scene() {
+        sceneObjects = new ArrayList<>();
+        lights = new ArrayList<>();
 
         CooktorranceMaterial m_diffuse_sky = new CooktorranceMaterial(
                 new Vector3D(0.01f),
@@ -37,5 +39,9 @@ public class Scene {
         lights.add(new PointLight(new Vector3D(0.0f, 4.0f, -5.0f), new Vector3D(1.0f), 1.0f, 0.0f, 0.0f, 0.1f));
         sceneObjects.add(SceneObject.buildPlane(new Vector3D(0.0f, 0.0f, 0.0f), new Vector3D(0.0f, 1.0f, 0.0f), m_diffuse_sand));
         sceneObjects.add(SceneObject.buildPlane(new Vector3D(0.0f, 0.0f, -10.0f), new Vector3D(0.0f, 0.0f, 1.0f), m_diffuse_sky)); // front wall
+    }
+
+    public void update(float dt) {
+
     }
 }

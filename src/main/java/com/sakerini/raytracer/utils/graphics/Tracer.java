@@ -37,7 +37,7 @@ public class Tracer {
 
             for (int i = 0; i < quantity; i++) {
                 for (int j = 0; j < quantity; j++) {
-                    TracerWorker worker = new TracerWorker(this, width, height, i * width, j * height, i * j * width);
+                    TracerWorker worker = new TracerWorker(this, width, height, i * width, j * height, i + j * width);
                     _workers.add(worker);
                 }
             }
@@ -47,7 +47,7 @@ public class Tracer {
 
     }
 
-    public boolean isWorkerDone() {
+    public boolean isWorkersDone() {
         for (TracerWorker worker: _workers)
             if (!worker.isFinished())
                 return false;
@@ -56,11 +56,12 @@ public class Tracer {
 
     public void update(float dt)
     {
+        _scene.update(dt);
         _camera.update(dt);
     }
 
     public void render(Display display) {
-        if (isWorkerDone()) {
+        if (isWorkersDone()) {
             for(TracerWorker worker : _workers) {
                 worker.set_display(display);
                 Thread tracerWorker = new Thread(worker, "Worker: " + worker.getId());
