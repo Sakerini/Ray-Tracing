@@ -18,7 +18,7 @@ public class Configuration {
     public static int displayHeight;
     public static int displayScale;
     public static int maxRecursion;
-    public static int amoutOfThreads;
+    public static int screenDivider;
     public static float epsilon;
     public static boolean debug;
 
@@ -36,7 +36,7 @@ public class Configuration {
             displayHeight = Integer.valueOf(properties.getProperty("display_height"));
             displayScale = Integer.valueOf(properties.getProperty("display_scale"));
             maxRecursion = Integer.valueOf(properties.getProperty("recursion_max"));
-            amoutOfThreads = Integer.valueOf(properties.getProperty("thread_amount"));
+            screenDivider = Integer.valueOf(properties.getProperty("thread_amount"));
             epsilon = Float.valueOf(properties.getProperty("epsilon"));
             debug = Boolean.valueOf(properties.getProperty("debug"));
 

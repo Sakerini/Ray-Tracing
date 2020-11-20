@@ -19,7 +19,7 @@ public class Tracer {
 
     public Tracer() {
         _camera = new Camera(new Vector3D(-1.0f, 1.0f, 0.2f), 0.005f, 0.1f);
-        prepareWorkers(Configuration.amoutOfThreads);
+        prepareWorkers(Configuration.screenDivider);
     }
 
     public void prepareWorkers(int quantity) {
