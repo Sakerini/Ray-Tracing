@@ -1,9 +1,10 @@
 package com.sakerini.raytracer.utils.graphics;
 import com.sakerini.raytracer.entity.Camera;
+import com.sakerini.raytracer.entity.Scene;
 import com.sakerini.raytracer.entity.TracerWorker;
 import com.sakerini.raytracer.entity.geometry.Vector3D;
 import com.sakerini.raytracer.utils.Configuration;
-import com.sakerini.raytracer.utils.graphics.Display;
+
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 public class Tracer {
 
     private Camera _camera;
+    private Scene _scene = new Scene();
     private List<TracerWorker> _workers = new ArrayList<TracerWorker>();
 
     public Tracer() {
