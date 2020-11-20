@@ -1,6 +1,6 @@
 package com.sakerini.raytracer.utils;
 
-import com.sakerini.raytracer.entity.Tracer;
+import com.sakerini.raytracer.utils.graphics.Tracer;
 import com.sakerini.raytracer.utils.graphics.Display;
 import com.sakerini.raytracer.utils.service.TimeUtil;
 

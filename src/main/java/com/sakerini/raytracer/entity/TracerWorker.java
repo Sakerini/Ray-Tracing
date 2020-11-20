@@ -1,6 +1,7 @@
 package com.sakerini.raytracer.entity;
 
 import com.sakerini.raytracer.utils.graphics.Display;
+import com.sakerini.raytracer.utils.graphics.Tracer;
 import lombok.Getter;
 import lombok.Setter;
 

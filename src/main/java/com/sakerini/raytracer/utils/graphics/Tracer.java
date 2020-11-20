@@ -1,4 +1,6 @@
-package com.sakerini.raytracer.entity;
+package com.sakerini.raytracer.utils.graphics;
+import com.sakerini.raytracer.entity.Camera;
+import com.sakerini.raytracer.entity.TracerWorker;
 import com.sakerini.raytracer.entity.geometry.Vector3D;
 import com.sakerini.raytracer.utils.Configuration;
 import com.sakerini.raytracer.utils.graphics.Display;
