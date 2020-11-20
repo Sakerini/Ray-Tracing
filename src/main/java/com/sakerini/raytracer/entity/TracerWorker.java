@@ -1,5 +1,6 @@
 package com.sakerini.raytracer.entity;
 
+import com.sakerini.raytracer.utils.Configuration;
 import com.sakerini.raytracer.utils.graphics.Display;
 import com.sakerini.raytracer.utils.graphics.Tracer;
 import lombok.Getter;
@@ -42,7 +43,18 @@ public class TracerWorker implements Runnable {
     public void run() {
         System.out.println("Worker: " + id + " Starts Work");
         isFinished = false;
-        //TODO PARALLEL RAY TRACING WORK DONE HERE
+        if (_tracer != null && _display != null) {
+            int width = Configuration.displayWidth;
+            int height = Configuration.displayHeight;
+            Ray cameraRay;
+            float aspectRatio = (float) _display.getWidth() / (float) _display.getHeight();
+            for (int y = yOffset; y < (yOffset + height); y++)
+                for (int x = xOffset; x < (xOffset + width); x++) {
+                    cameraRay = Ray.calculateCameraRay(_tracer.get_camera(), width, height, aspectRatio, x, y);
+                    //TODO DRAW PIXEL VECTOR3D
+
+                }
+        }
         TimeUnit.SECONDS.sleep(2);
         isFinished = true;
         System.out.println("Worker: " + id + " Finishes Work");
