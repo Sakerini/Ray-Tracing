@@ -1,15 +1,18 @@
 package com.sakerini.raytracer.entity;
 
+import com.sakerini.raytracer.entity.geometry.Intersection;
+import com.sakerini.raytracer.entity.geometry.Primitive;
+import com.sakerini.raytracer.entity.geometry.Vector3D;
+import com.sakerini.raytracer.entity.lightsource.BaseLight;
 import com.sakerini.raytracer.utils.Configuration;
 import com.sakerini.raytracer.utils.graphics.Display;
 import com.sakerini.raytracer.utils.graphics.Tracer;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.SneakyThrows;
-
-import java.util.concurrent.TimeUnit;
 
 public class TracerWorker implements Runnable {
+
+    private static final int RECURSION_DEPTH = 0;
 
     @Setter
     private Display _display;
@@ -38,7 +41,6 @@ public class TracerWorker implements Runnable {
         this.isFinished = true;
     }
 
-    @SneakyThrows
     @Override
     public void run() {
         isFinished = false;
@@ -50,9 +52,51 @@ public class TracerWorker implements Runnable {
             for (int y = yOffset; y < (yOffset + height); y++)
                 for (int x = xOffset; x < (xOffset + width); x++) {
                     cameraRay = Ray.calculateCameraRay(_tracer.get_camera(), width, height, aspectRatio, x, y);
-                    // TODO TRACE COLOR _display.drawPixelVector3d(x, y, //TODO TRACING COLOR);
+                    _display.drawPixelVector3d(x, y, traceColor(cameraRay, _tracer.get_scene(), RECURSION_DEPTH));
                 }
         }
         isFinished = true;
+    }
+
+    public static Vector3D traceColor(Ray ray, Scene scene, int recursionDepth) {
+        if (recursionDepth > Configuration.maxRecursion)
+            return new Vector3D(); // Return no color
+
+        // Init intersect data
+        Intersection xInit = null, xFinal = null;
+        SceneObject xObj = null;
+        float tNear = Float.MAX_VALUE; // Distance to the intersect object
+
+        // Find nearest intersection point
+        for (SceneObject object : scene.getSceneObjects()) {
+            for (Primitive primitive : object.get_primitives()) {
+                xInit = primitive.intersect(ray);
+                if (xInit != null && xInit.getT() < tNear) {
+                    xFinal = xInit;
+                    tNear = xFinal.getT();
+                    xObj = object;
+                }
+            }
+        }
+
+        // If did not hit anything return background color
+        if (xFinal == null)
+            return new Vector3D();
+
+        // Init color to return
+        Vector3D colorResult = new Vector3D();
+
+        // Shade surface point against lights
+        for (BaseLight light: scene.getLights()) {
+            //TODO ADD SHADER RESULT colorResult.setVector(colorResult.add())
+
+            Ray shadowRay = null;
+
+            if (xObj.getMaterial().getReflectivity() != 1.0f) {
+                //TODO TRACE SHADOW FROM LIGHT SOURCES
+            }
+        }
+
+        return null;
     }
 }
