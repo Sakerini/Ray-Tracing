@@ -1,6 +1,7 @@
 package com.sakerini.raytracer.entity;
 
 import com.sakerini.raytracer.entity.geometry.Primitive;
+import com.sakerini.raytracer.entity.material.BaseMaterial;
 import lombok.Getter;
 import lombok.Setter;
 

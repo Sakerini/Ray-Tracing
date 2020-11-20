@@ -59,8 +59,12 @@ public class Configuration {
         return file;
     }
 
-    public static enum materialModel {
+    public enum materialModel {
         COOKTORRANCE, PHONG
+    }
+
+    public enum lightType {
+        DIRECTIONAL, POINT
     }
 
 }

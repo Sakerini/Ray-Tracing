@@ -1,4 +1,4 @@
-package com.sakerini.raytracer.entity;
+package com.sakerini.raytracer.entity.material;
 
 import com.sakerini.raytracer.entity.geometry.Vector3D;
 import com.sakerini.raytracer.utils.Configuration;
