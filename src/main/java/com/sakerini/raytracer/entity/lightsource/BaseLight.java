@@ -10,10 +10,12 @@ import lombok.Setter;
 public abstract class BaseLight {
 
     private Enum<Configuration.lightType> lightType;
+    private Vector3D position;
     private Vector3D color;
     private float intensity;
 
-    public BaseLight(Vector3D color, float intensity) {
+    public BaseLight(Vector3D position, Vector3D color, float intensity) {
+        this.position = position;
         this.color = color;
         this.intensity = intensity;
     }

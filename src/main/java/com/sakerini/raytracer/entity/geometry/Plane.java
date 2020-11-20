@@ -1,6 +1,7 @@
 package com.sakerini.raytracer.entity.geometry;
 
 import com.sakerini.raytracer.entity.Ray;
+import com.sakerini.raytracer.utils.Configuration;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +18,25 @@ public class Plane extends Primitive {
 
     @Override
     public Intersection intersect(Ray ray) {
-        //TODO
-        return null;
+        Vector3D P;
+        float d, t;
+
+        P = vertices[0].sub(ray.getPosition());
+        d = normal.dot(ray.getPosition());
+
+        if (d > 0.0f)
+            return null;
+
+        t = P.dot(normal) / d;
+
+        if (t < Configuration.epsilon)
+            return null;
+
+        Intersection x = new Intersection();
+        x.setPosition(ray.getPosition().add(ray.getDirection().scale(t)));
+        x.setNormal(normal.normalize());
+        x.setT(t);
+
+        return x;
     }
 }

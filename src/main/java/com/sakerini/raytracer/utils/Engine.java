@@ -2,6 +2,7 @@ package com.sakerini.raytracer.utils;
 
 import com.sakerini.raytracer.utils.graphics.Tracer;
 import com.sakerini.raytracer.utils.graphics.Display;
+import com.sakerini.raytracer.utils.service.InputListener;
 import com.sakerini.raytracer.utils.service.TimeUtil;
 
 public class Engine implements Runnable {
@@ -9,11 +10,15 @@ public class Engine implements Runnable {
     private boolean isRunning;
     private Display _display;
     private Tracer _tracer;
+    private InputListener _inputListener = new InputListener();
 
     public Engine(Display display, Tracer tracer) {
         _display = display;
         _tracer = tracer;
         isRunning = false;
+        _display.addKeyListener(_inputListener);
+        _display.addMouseListener(_inputListener);
+        _display.addMouseMotionListener(_inputListener);
     }
 
     public synchronized void start() {
@@ -37,6 +42,7 @@ public class Engine implements Runnable {
             update((float) TimeUtil.getDeltatTime());
             render();
         }
+        stop();
     }
 
     public void render() {

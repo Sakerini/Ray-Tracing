@@ -39,7 +39,6 @@ public class Tracer {
                 for (int j = 0; j < quantity; j++) {
                     TracerWorker worker = new TracerWorker(this, width, height, i * width, j * height, i * j * width);
                     _workers.add(worker);
-                    System.out.println(worker.getId());
                 }
             }
         } else {
