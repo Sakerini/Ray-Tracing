@@ -19,4 +19,12 @@ public class Shader {
     public static float clamp(float x, float lowerLimit, float upperLimit) {
         return Math.max(lowerLimit, Math.min(x, upperLimit));
     }
+
+    public static Vector3D clampVector(Vector3D vector3D, float lowerLimit, float upperLimit) {
+        float x = clamp(vector3D.x, lowerLimit, upperLimit);
+        float y = clamp(vector3D.y, lowerLimit, upperLimit);
+        float z = clamp(vector3D.z, lowerLimit, upperLimit);
+
+        return new Vector3D(x, y, z);
+    }
 }

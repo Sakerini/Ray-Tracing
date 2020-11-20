@@ -1,6 +1,7 @@
 package com.sakerini.raytracer.utils.graphics;
 
 import com.sakerini.raytracer.entity.geometry.Vector3D;
+import com.sakerini.raytracer.utils.shader.Shader;
 import lombok.Setter;
 
 import javax.swing.*;
@@ -56,7 +57,18 @@ public class Display extends Canvas {
         if (x < 0 || x > width || y < 0 || y > height) {
             return;
         }
+
+        color = Shader.smoothStepVector3d(Shader.clampVector(color, 0.0f, 1.0f), 0.0f, 1.0f);
+
+        long red = (long) (color.x * 255.0f);
+        long green = (long) (color.y * 255.0f);
+        long blue = (long) (color.z * 255.0f);
+        long hex_value = ((red << 16) | (green << 8) | blue);
+
+        int index = x + y * width;
+        pixels[index] = (int) hex_value;
     }
+
 
     public void render() {
         Graphics graphics = _bufferStrategy.getDrawGraphics();

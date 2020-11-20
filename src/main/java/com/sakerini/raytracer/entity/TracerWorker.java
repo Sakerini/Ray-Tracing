@@ -41,7 +41,6 @@ public class TracerWorker implements Runnable {
     @SneakyThrows
     @Override
     public void run() {
-        System.out.println("Worker: " + id + " Starts Work");
         isFinished = false;
         if (_tracer != null && _display != null) {
             int width = Configuration.displayWidth;
@@ -51,12 +50,9 @@ public class TracerWorker implements Runnable {
             for (int y = yOffset; y < (yOffset + height); y++)
                 for (int x = xOffset; x < (xOffset + width); x++) {
                     cameraRay = Ray.calculateCameraRay(_tracer.get_camera(), width, height, aspectRatio, x, y);
-                    //TODO DRAW PIXEL VECTOR3D
-
+                    // TODO TRACE COLOR _display.drawPixelVector3d(x, y, //TODO TRACING COLOR);
                 }
         }
-        TimeUnit.SECONDS.sleep(2);
         isFinished = true;
-        System.out.println("Worker: " + id + " Finishes Work");
     }
 }
