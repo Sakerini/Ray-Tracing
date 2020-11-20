@@ -12,12 +12,14 @@ import java.util.List;
 public class SceneObject {
 
     private List<Primitive> _primitives;
+    private BaseMaterial material;
 
     public SceneObject() {
         _primitives = new ArrayList<>();
     }
 
-    public SceneObject(List<Primitive> primitives) {
+    public SceneObject(List<Primitive> primitives, BaseMaterial material) {
         this._primitives = primitives;
+        this.material = material;
     }
 }
