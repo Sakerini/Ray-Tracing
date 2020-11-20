@@ -11,6 +11,7 @@ public abstract class Primitive {
     protected Primitive(Vector3D[] vertices) {
         this.vertices = vertices;
     }
+
     protected Primitive(Vector3D position) {
         vertices = new Vector3D[1];
         vertices[0] = position;

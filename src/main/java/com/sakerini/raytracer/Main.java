@@ -1,6 +1,8 @@
 package com.sakerini.raytracer;
 
 import com.sakerini.raytracer.entity.Tracer;
+import com.sakerini.raytracer.entity.geometry.Sphere;
+import com.sakerini.raytracer.entity.geometry.Vector3D;
 import com.sakerini.raytracer.utils.Configuration;
 import com.sakerini.raytracer.utils.Engine;
 import com.sakerini.raytracer.utils.graphics.Display;
