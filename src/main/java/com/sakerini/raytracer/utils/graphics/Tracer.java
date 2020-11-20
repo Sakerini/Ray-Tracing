@@ -32,7 +32,16 @@ public class Tracer {
         int height = Configuration.displayHeight;
 
         if (quantity > 1) {
-            // TODO CREATE WORKER FOR CERTAIN PART
+            width /= quantity;
+            height /= quantity;
+
+            for (int i = 0; i < quantity; i++) {
+                for (int j = 0; j < quantity; j++) {
+                    TracerWorker worker = new TracerWorker(this, width, height, i * width, j * height, i * j * width);
+                    _workers.add(worker);
+                    System.out.println(worker.getId());
+                }
+            }
         } else {
             _workers.add(new TracerWorker(this, width, height, 0,0, 0));
         }

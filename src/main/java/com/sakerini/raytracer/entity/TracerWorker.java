@@ -4,6 +4,9 @@ import com.sakerini.raytracer.utils.graphics.Display;
 import com.sakerini.raytracer.utils.graphics.Tracer;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.SneakyThrows;
+
+import java.util.concurrent.TimeUnit;
 
 public class TracerWorker implements Runnable {
 
@@ -34,10 +37,14 @@ public class TracerWorker implements Runnable {
         this.isFinished = true;
     }
 
+    @SneakyThrows
     @Override
     public void run() {
+        System.out.println("Worker: " + id + " Starts Work");
         isFinished = false;
         //TODO PARALLEL RAY TRACING WORK DONE HERE
+        TimeUnit.SECONDS.sleep(2);
         isFinished = true;
+        System.out.println("Worker: " + id + " Finishes Work");
     }
 }
