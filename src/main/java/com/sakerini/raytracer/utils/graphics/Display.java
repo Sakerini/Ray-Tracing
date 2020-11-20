@@ -1,5 +1,6 @@
 package com.sakerini.raytracer.utils.graphics;
 
+import com.sakerini.raytracer.entity.geometry.Vector3D;
 import lombok.Setter;
 
 import javax.swing.*;
@@ -48,6 +49,13 @@ public class Display extends Canvas {
 
         createBufferStrategy(3);
         _bufferStrategy = getBufferStrategy();
+    }
+
+    public void drawPixelVector3d(int x, int y, Vector3D color) {
+
+        if (x < 0 || x > width || y < 0 || y > height) {
+            return;
+        }
     }
 
     public void render() {
