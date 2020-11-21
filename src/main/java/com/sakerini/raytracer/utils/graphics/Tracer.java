@@ -18,7 +18,7 @@ public class Tracer {
     private List<TracerWorker> _workers = new ArrayList<TracerWorker>();
 
     public Tracer() {
-        _camera = new Camera(new Vector3D(-1.0f, 1.0f, 0.2f), 0.005f, 0.1f);
+        _camera = new Camera(new Vector3D(2.0f, 5.0f, 30f), 0.005f, 0.1f);
         prepareWorkers(Configuration.screenDivider);
     }
 
