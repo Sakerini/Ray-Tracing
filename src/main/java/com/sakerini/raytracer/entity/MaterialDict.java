@@ -68,6 +68,27 @@ public class MaterialDict {
                 new Vector3D(1.0f),
                 0.0f, 0.0001f, 0, 0.50f, 1.0f, 1f);
         dict.put("black_color", black_color);
+
+        CooktorranceMaterial reflective_red = new CooktorranceMaterial(
+                new Vector3D(0.01f),
+                new Vector3D(1.0f, 0.0f, 0.0f),
+                new Vector3D(1.0f),
+                0.15f, 0, 0, 0.05f, 1.0f, 0.5f);
+        dict.put("reflective_red", reflective_red);
+
+        CooktorranceMaterial diffuse_red = new CooktorranceMaterial(
+                new Vector3D(0.01f),
+                new Vector3D(1.0f, 0.0f, 0.0f),
+                new Vector3D(1.0f),
+                0.0f, 0.0001f, 0.5f, 0.375f, 0.5f, 0.9f);
+        dict.put("diffuse_red", diffuse_red);
+
+        CooktorranceMaterial refractive_glass = new CooktorranceMaterial(
+                new Vector3D(0.01f),
+                new Vector3D(1.0f, 0.0f, 0.0f),
+                new Vector3D(1.0f),
+                0.0f, 1.0f, 1.52f, 0.10f, 1.0f, 0.5f);
+        dict.put("refractive_glass", refractive_glass);
     }
 
     public BaseMaterial getMaterial(String materialName) {

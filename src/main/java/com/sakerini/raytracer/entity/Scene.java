@@ -75,7 +75,51 @@ public class Scene {
     }
 
     public void secondScene() {
-        
+        lights.add(new PointLight(
+                new Vector3D(0.0f, 4.0f, -5.0f),
+                new Vector3D(1.0f),
+                1.0f, 0.0f, 0.0f, 0.1f)
+        );
+
+        sceneObjects.add(SceneObject.buildPlane(
+                new Vector3D(0.0f, 0.0f, 0.0f),
+                new Vector3D(0.0f, 1.0f, 0.0f),
+                materials.getMaterial("diffuse_white")
+        ));
+
+        sceneObjects.add(SceneObject.buildPlane(
+                new Vector3D(0.0f, 5.0f, 0.0f),
+                new Vector3D(0.0f, -1.0f, 0.0f),
+                materials.getMaterial("diffuse_white")
+        ));
+
+        sceneObjects.add(SceneObject.buildPlane(
+                new Vector3D(0.0f, 0.0f, -10.0f),
+                new Vector3D(0.0f, 0.0f, 1.0f),
+                materials.getMaterial("diffuse_white")
+        ));
+
+        sceneObjects.add(SceneObject.buildPlane(
+                new Vector3D(4.0f, 0.0f, 0.0f),
+                new Vector3D(-1.0f, 0.0f, 0.0f),
+                materials.getMaterial("diffuse_white")
+        ));
+
+        sceneObjects.add(SceneObject.buildPlane(
+                new Vector3D(-4.0f, 0.0f, 0.0f),
+                new Vector3D(1.0f, 0.0f, 0.0f),
+                materials.getMaterial("diffuse_white")
+        ));
+
+        sceneObjects.add(SceneObject.buildSphere(
+                new Vector3D(2.0f, 0.75f, -5.0f), 0.75f, materials.getMaterial("diffuse_red")
+        ));
+        sceneObjects.add(SceneObject.buildSphere(
+                new Vector3D(0.0f, 0.75f, -5.0f), 0.75f, materials.getMaterial("reflective_metal")
+        ));
+        sceneObjects.add(SceneObject.buildSphere(
+                new Vector3D(-2.0f, 0.75f, -5.0f), 0.75f, materials.getMaterial("refractive_glass")
+        ));
     }
 
     public void update(float dt) {
