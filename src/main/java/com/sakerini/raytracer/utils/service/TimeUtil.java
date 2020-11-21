@@ -14,10 +14,9 @@ public class TimeUtil {
     @Getter
     private static double deltatTime = 0;
 
-
     public static void update() {
         currentTime = getTime();
-        deltatTime = deltatTime * SMOOTHING + (double) (currentTime - lastTime);
+        deltatTime = deltatTime * SMOOTHING + (double) (currentTime - lastTime) * 0.1;
         lastTime = currentTime;
     }
 
