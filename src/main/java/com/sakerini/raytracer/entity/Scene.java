@@ -39,6 +39,7 @@ public class Scene {
         lights.add(new PointLight(new Vector3D(0.0f, 4.0f, -5.0f), new Vector3D(1.0f), 1.0f, 0.0f, 0.0f, 0.1f));
         sceneObjects.add(SceneObject.buildPlane(new Vector3D(0.0f, 0.0f, 0.0f), new Vector3D(0.0f, 1.0f, 0.0f), m_diffuse_sand));
         sceneObjects.add(SceneObject.buildPlane(new Vector3D(0.0f, 0.0f, -10.0f), new Vector3D(0.0f, 0.0f, 1.0f), m_diffuse_sky)); // front wall
+        sceneObjects.add(SceneObject.buildSphere(new Vector3D(1.0f, 0.75f, -4.0f), 0.75f, m_reflective_green));
     }
 
     public void update(float dt) {

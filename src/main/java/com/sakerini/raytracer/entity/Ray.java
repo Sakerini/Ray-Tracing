@@ -16,13 +16,13 @@ public class Ray {
 
     public Ray(Vector3D position, Vector3D direction, float ior) {
         this.position = position;
-        this .direction = direction;
+        this .direction = direction.normalize();
         this.ior = ior;
     }
 
     public Ray(Vector3D position, Vector3D direction) {
         this.position = position;
-        this.direction = direction;
+        this.direction = direction.normalize();
         this.ior = 1.0f;
     }
 
