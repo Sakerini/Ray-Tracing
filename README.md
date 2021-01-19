@@ -5,7 +5,7 @@ This is a simple ray tracing computer graphics course work.
 
 ## Project
 
-- Written on Java 📦
+- Written in Java 📦
 - There is **keyboard movement**
 - **Awesom** spheres 🌟 with custom props (color, position,...) 
 - Camera Control 📐 (tilt,...)
